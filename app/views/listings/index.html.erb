@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1><% if @vendor %><%= "#{@vendor.name}'s" %><% end %> Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Species</th>
+      <th>Quantity</th>
+      <th>Vendor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.species %></td>
+        <td><%= listing.quantity %></td>
+        <td><%= listing.vendor.name %></td>
+        <td><%= link_to 'Show', vendor_listing_path(listing.vendor, listing)  %></td>
+        <td><%= link_to 'Edit', edit_vendor_listing_path(listing.vendor, listing) %></td>
+        <td><%= link_to 'Destroy', vendor_listing_path(listing.vendor, listing), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if @vendor %>
+<%= link_to 'New Listing', new_vendor_listing_path(@vendor) %>
+<% end %>

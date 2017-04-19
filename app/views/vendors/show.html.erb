@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vendor.name %>
+</p>
+
+ <p>
+  <strong><%= link_to "#{@vendor.name}'s Listings", vendor_listings_path(@vendor) %></strong>
+</p>
+
+
+<%= link_to 'New Listing', new_vendor_listing_path(@vendor) %>
+<%= link_to 'Edit', edit_vendor_path(@vendor) %> |
+<%= link_to 'Back', vendors_path %>
